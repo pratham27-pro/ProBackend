@@ -17,6 +17,7 @@ const uploadOnCloudinary = async (localFilePath) => {
         })
         // file has been uploaded successfully
         console.log("File is uploaded on cloudinary!", response.url);
+        fs.unlinkSync(localFilePath);
         return response
     } catch (error) {
         // to remove half-uploaded files or like any corrupted files or files which can't be read from the server
